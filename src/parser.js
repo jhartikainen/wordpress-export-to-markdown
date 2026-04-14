@@ -99,6 +99,7 @@ function buildPost(data) {
 		slug: decodeURIComponent(data.childValue('post_name')),
 		date: getPostDate(data),
 		coverImageId: getPostMetaValue(data, '_thumbnail_id'),
+		link: data.childValue('link'),
 
 		// these are possibly set later in mergeImagesIntoPosts()
 		coverImage: undefined,
