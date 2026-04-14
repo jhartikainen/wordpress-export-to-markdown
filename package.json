@@ -18,13 +18,13 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@guyplusplus/turndown-plugin-gfm": "^1.0.7",
 		"@inquirer/prompts": "^7.4.0",
+		"@truto/turndown-plugin-gfm": "^1.0.2",
 		"axios": "^1.8.2",
 		"chalk": "^5.4.1",
 		"commander": "^13.1.0",
 		"luxon": "^3.5.0",
-		"turndown": "^7.2.0",
+		"turndown": "^7.2.4",
 		"xml2js": "^0.6.2"
 	},
 	"bin": {

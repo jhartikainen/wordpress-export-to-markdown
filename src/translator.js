@@ -1,4 +1,4 @@
-import turndownPluginGfm from '@guyplusplus/turndown-plugin-gfm';
+import {gfm} from '@truto/turndown-plugin-gfm';
 import turndown from 'turndown';
 import * as shared from './shared.js';
 
@@ -12,7 +12,7 @@ function initTurndownService() {
 		codeBlockStyle: 'fenced'
 	});
 
-	turndownService.use(turndownPluginGfm.tables);
+	turndownService.use(gfm);
 
 	turndownService.remove(['style']); // <style> contents get dumped as plain text, would rather remove
 
