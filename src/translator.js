@@ -100,7 +100,7 @@ function initTurndownService() {
 			return node.nodeName === 'PRE' && !node.querySelector('code');
 		},
 		replacement: (content, node) => {
-			const language = node.getAttribute('data-wetm-language') ?? '';
+			const language = node.getAttribute('data-wetm-language') ?? node.getAttribute('lang') ?? '';
 			return '\n\n```' + language + '\n' + node.textContent + '\n```\n\n';
 		}
 	});
