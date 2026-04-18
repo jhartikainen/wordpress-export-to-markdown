@@ -153,6 +153,13 @@ export function load() {
 			type: 'boolean',
 			description: 'Use strict SSL',
 			default: true
-		}
+		},
+		{
+			name: 'filename-spaces',
+			type: 'boolean',
+			description: 'Use spaces instead of dashes in output filenames',
+			default: true
+		},
+
 	];
 }
