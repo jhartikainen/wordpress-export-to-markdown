@@ -160,6 +160,12 @@ export function load() {
 			description: 'Use spaces instead of dashes in output filenames',
 			default: true
 		},
+		{
+			name: 'escape-pre-contents',
+			type: 'boolean',
+			description: 'Escape < and > in <pre> blocks?',
+			default: true
+		},
 
 	];
 }

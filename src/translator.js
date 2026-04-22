@@ -108,7 +108,25 @@ function initTurndownService() {
 	return turndownService;
 }
 
+function escapeBrackets(code) {
+	return code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
 export function getPostContent(content) {
+	if(shared.config.escapePreContents) {
+		//Slightly naive to replace with regex, probably won't work for nested <pre> tags
+		content = content.replace(
+			/(<pre[^>]+>)(.*?)<\/pre>/gs,
+			(match, openTag, code) => openTag + escapeBrackets(code) + '</pre>'
+		)
+
+		//Attempt to fix inline PHP code samples
+		content = content.replace(
+			/(<\?php)(.+?)(\?>)/g,
+			(match, open, code, close) => `<code>&lt;?php${escapeBrackets(code)}?&gt;</code>`
+			//'&lt;php$2?&gt;'
+		);
+	}
+
 	// insert an empty div element between double line breaks
 	// this nifty trick causes turndown to keep adjacent paragraphs separated
 	// without mucking up content inside of other elements (like <code> blocks)
