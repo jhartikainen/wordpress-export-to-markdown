@@ -133,9 +133,8 @@ export function getPostContent(content) {
 	content = content.replace(/(\r?\n){2}/g, '\n<div></div>\n');
 
 	if (shared.config.saveImages === 'scraped' || shared.config.saveImages === 'all') {
-		// writeImageFile() will save all content images to a relative /images
-		// folder so update references in post content to match
-		content = content.replace(/(<img(?=\s)[^>]+?(?<=\s)src=")[^"]*?([^/"]+?)(\?[^"]*)?("[^>]*>)/gi, '$1images/$2$4');
+		const imgDir = shared.config.imageDirName;
+		content = content.replace(/(<img(?=\s)[^>]+?(?<=\s)src=")[^"]*?([^/"]+?)(\?[^"]*)?("[^>]*>)/gi, `$1${imgDir}/$2$4`);
 	}
 
 	// preserve "more" separator, max one per post, optionally with custom label

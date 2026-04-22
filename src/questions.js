@@ -166,6 +166,11 @@ export function load() {
 			description: 'Escape < and > in <pre> blocks?',
 			default: true
 		},
-
+		{
+			name: 'image-dir-name',
+			type: 'string',
+			description: 'Name of the image directory to use',
+			default: 'images'
+		},
 	];
 }
